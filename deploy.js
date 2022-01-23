@@ -14,7 +14,7 @@ function main() {
 // installs PM2
 function installPM2() {
   return ssh.execCommand(
-    'sudo npm install pm2 -g', {
+    'npm install -g pm2', {
       cwd: '/home/ubuntu'
   });
 }
@@ -65,7 +65,7 @@ function stopRemoteServices() {
 // updates the project source on the server
 function updateRemoteApp() {
   return ssh.execCommand(
-    'mkdir hackathon-starter && cp -r hackathon-starter-temp/* hackathon-starter/ && rm -rf hackathon-starter-temp', {
+    'rm -rf hackathon-starter && mkdir hackathon-starter && cp -r hackathon-starter-temp/* hackathon-starter/ && rm -rf hackathon-starter-temp', {
       cwd: '/home/ubuntu'
   });
 }
